@@ -1,0 +1,23 @@
+kubectl \
+  logs \
+  -n sasoperator\
+  sas-logon-app-67888b6586-b7l2j
+
+kubectl \
+  get sasdeployments \
+  -n sasoperator \
+  -o yaml
+
+kubectl wait -n sasoperator \
+  --for=condition=ready pod \
+  --selector="app.kubernetes.io/name=sas-readiness" \
+  --timeout=1800s
+
+curl –resolve farahmhamdi.com:80:40.127.227.87 h
+
+
+
+https://sas-viya.farahmhamdi.com:443/SASLogon/reset_password?code=OUu6sCJ6m9
+https://sas-viya.farahmhamdi.com:443/SASDrive
+
+kubectl -n sasoperator logs -c sas-logon-app $(kubectl -n sasoperator get pods -l "app==sas-logon-app" --no-headers --sort-by=.status.startTime -o custom-columns=":metadata.name" | tail -1) | grep "/SASLogon/reset_password?"

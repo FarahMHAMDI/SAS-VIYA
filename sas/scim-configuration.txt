@@ -1,0 +1,47 @@
+export NS=sasoperator; \
+export CONSUL_TOKEN=`kubectl -n ${NS} get secret sas-consul-client \
+-o go-template='{{(index .data "CONSUL_HTTP_TOKEN")}}' | base64 -d`
+
+
+echo $CONSUL_TOKEN
+60802b77-3ab4-11ee-8a5d-966e4f4b2809
+---------------------
+
+INGRESS_URL=https://sas-biware.com; \
+export BEARER_TOKEN=`curl -sk -X POST \
+"${INGRESS_URL}/SASLogon/oauth/clients/consul?callback=false&serviceId=idp-client-id" \
+-H "X-Consul-Token: $CONSUL_TOKEN" | awk -F: '{print $2}'|awk -F\" '{print $2}'`
+
+ ${BEARER_TOKEN}
+The registration access-token is:  eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vbG9jYWxob3N0L1NBU0xvZ29uL3Rva2VuX2tleXMiLCJraWQiOiJsZWdhY3ktdG9rZW4ta2V5IiwidHlwIjoiSldUIn0.eyJqdGkiOiIzMzVhNmFlZWNhYTE0ZGNiYmRjM2ExODExYTdhNDg3YyIsInN1YiI6InNhcy5hZG1pbiIsImF1dGhvcml0aWVzIjpbImNsaWVudHMucmVhZCIsImNsaWVudHMuc2VjcmV0IiwidWFhLnJlc291cmNlIiwiY2xpZW50cy53cml0ZSIsInVhYS5hZG1pbiIsImNsaWVudHMuYWRtaW4iLCJzY2ltLndyaXRlIiwic2NpbS5yZWFkIl0sInNjb3BlIjpbImNsaWVudHMucmVhZCIsImNsaWVudHMud3JpdGUiLCJ1YWEuYWRtaW4iXSwiY2xpZW50X2lkIjoic2FzLmFkbWluIiwiY2lkIjoic2FzLmFkbWluIiwiYXpwIjoic2FzLmFkbWluIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJjNzYzOTZkZiIsImlhdCI6MTY5MjAyNjYyNCwiZXhwIjoxNjkyMDMwMjI0LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0L1NBU0xvZ29uL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbImNsaWVudHMiLCJ1YWEiLCJzYXMuYWRtaW4iXX0.C0xxv6-XfFgi2hctvbQ03d0TUH_OUJBsuD53bQuDwQAcpLOlZV6lWuWybcyNapfxDLLlota-NAxMEJiI4HF_XUHH9V6IGUHTbtUHxBugIhPXktqdsrIyBLGq5UTBM0DkYZCNjXlI8d_GdZsTOpWIPWxXYBOTz0hc9T0X7dUUPzoauofZDW5HMcnUnDK7e8LanUkUql9Tp-_HY6rDOw9jUEM7ZyE4x5DIBr6qCXbubF3M4F40FMSFh343eKRhYlxwvLxuG6w3ayEsA5yQL92IgTTqKGK16gk1DJhZpj35y6o5lwdTkBNjifVKP-IzD01P8srUwM-j7eLp2M3_ITf8Ig
+   ------------------
+curl -k -X POST "${INGRESS_URL}/SASLogon/oauth/clients" \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer $BEARER_TOKEN" \
+     -d '{
+         "client_id": "idp-client-id",
+         "client_secret": "idp-client-secret",
+         "authorities": ["SCIM"],
+         "authorized_grant_types": ["client_credentials"],
+         "access_token_validity": 63070000
+         }'
+{"scope":["uaa.none"],"client_id":"idp-client-id","resource_ids":["none"],"authorized_grant_types":["client_credentials"],"autoapprove":[],"access_token_validity":63070000,"authorities":["SCIM"],"lastModified":1691139217212,"required_user_groups":[]}
+
+
+curl -k -X POST "${INGRESS_URL}/identities/scim/v2/" \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer $BEARER_TOKEN" 
+
+
+ACCESS_TOKEN=`curl -skX POST "${INGRESS_URL}/SASLogon/oauth/token" \
+-H "Content-Type: application/x-www-form-urlencoded" \
+-d "grant_type=client_credentials" \
+-u "idp-client-id:idp-client-secret"| awk -F: '{print $2}'|awk -F\" '{print $2}'`; \
+echo "The client access-token is: " ${ACCESS_TOKEN}; \
+echo ${ACCESS_TOKEN} > ~/idtoken.txt
+
+The client access-token is:  eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vbG9jYWxob3N0L1NBU0xvZ29uL3Rva2VuX2tleXMiLCJraWQiOiJsZWdhY3ktdG9rZW4ta2V5IiwidHlwIjoiSldUIn0.eyJqdGkiOiIyMzU4MzQ1NGRjODQ0ZGY0ODliMGJmMGEyNDA0MDBhMSIsInN1YiI6ImlkcC1jbGllbnQtaWQiLCJhdXRob3JpdGllcyI6WyJTQ0lNIl0sInNjb3BlIjpbIlNDSU0iXSwiY2xpZW50X2lkIjoiaWRwLWNsaWVudC1pZCIsImNpZCI6ImlkcC1jbGllbnQtaWQiLCJhenAiOiJpZHAtY2xpZW50LWlkIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInJldl9zaWciOiJkZmZhZGQ0OSIsImlhdCI6MTY5MjAyNjcyMiwiZXhwIjoxNzU1MDk2NzIyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0L1NBU0xvZ29uL29hdXRoL3Rva2VuIiwiemlkIjoidWFhIiwiYXVkIjpbImlkcC1jbGllbnQtaWQiXX0.aHvbjBlQdrynp7Lfns0SUegDO7ycZlP7MZFalOV0FVCIZ2onOlzc4S0ZjI9R-A7FiCvC6PGWIm13F5Y2NIgRbdqnlcFOEKhHjMPCzkYbt8GycNzxTeYNhZsA0kF9e75lPx3ydtMJ2GZNOX9ggZSG3_dnXoveIc2HpNC8EBzMor8qmHsRo7SqD9C17jZxkUSOpyQJvX6MU1ZcWHBe8PmroFfNsNo3sNTLkonXFnyTqVULLWlK8-emdRVuOGZ7dyagFiAFqUuvGtbGkwrfcygF2IN8OQbKIW4S6dzt4k6IavLIu05L4ue-iWfpyyziUDfZqdbiGt6vR3W0On9gEQjFMw
+     
+
+
+https://sas-biware.com/identities/scim/v2/

@@ -1,0 +1,74 @@
+1/ Add pull image
+kubectl -n sasoperator \
+  create secret generic sas-orchestration-secret \
+  --type=kubernetes.io/dockerconfigjson \
+  --from-file=.dockerconfigjson=file-with-secret-content
+
+
+kubectl -n sasoperator \
+  create secret generic sas-orchestration-secret \
+  --type=kubernetes.io/dockerconfigjson \
+  --from-file=.dockerconfigjson=site-config/image-pull-secret.json
+
+command used :
+kubectl -n sasoperator \
+  create secret generic sas-orchestration-secret \
+  --type=kubernetes.io/dockerconfigjson \
+  --from-file=.dockerconfigjson=/root/.docker/config.json
+
+----------------------
+2/ Create SAS Deployment Custom Resource
+docker run --
+rm
+ \
+  sas-orchestration \
+  create sas-deployment-cr \
+  --deployment-data https://example.com/path/to/certificate.zip \
+  --license https://example.com/path/to/license.jwt \
+  --user-content /deploy \
+  --cadence-name tls \
+  --cadence-version 
+"2022.09"
+ \
+> deploy-sasdeployment.yaml
+
+Command used for the deployment of SAS Deployment Custom Resource
+docker run --rm \
+  -v $(pwd):/deploy \
+  sas-orchestration \
+  create sas-deployment-cr \
+  --deployment-data /deploy/license/SASViyaV4_9CTNGV_certs.zip \
+  --license /deploy/license/SASViyaV0300_9CWC2G_70295390_Linux_x86-64.jwt \
+  --user-content /deploy \
+  --cadence-name lts \
+  --cadence-version "2023.03" \
+> deploy-sasdeployment.yaml
+
+-------------------------------
+3/ Deploy SAS-VIYA Operator in the Folder $OPERATOR-DEPLOY
+
+
+kustomize build . | kubectl -n sasoperator apply -f -
+
+-------------------------
+4/ DEploy SAS-VIYA ihn the Folder $DEPLOY
+kubectl -n sasoperator apply -f deploy-sasdeployment.yaml
+
+
+------------------
+Delete SAS-deployment
+
+kubectl -n sasoperator delete -f deploy-sasdeployment.yaml
+
+
+kustomize build . | kubectl -n sasoperator delete -f -
+
+kubectl -n sasoperator delete all --all
+
+kubectl -n sasoperator delete secrets --all
+
+kubectl -n sasoperator delete configmap  --all
+kubectl delete ns sasoperator
+
+
+

@@ -1,0 +1,6 @@
+echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
+
+terraform init
+terraform plan --var-file=examples/sample-input.tfvars 
+terraform apply --var-file=examples/sample-input.tfvars -auto-approve
+terraform destroy --var-file=examples/sample-input.tfvars -auto-approve

@@ -1,0 +1,14 @@
+apiVersion: orchestration.sas.com/v2beta10
+kind: LifecycleOperation
+metadata:
+  annotations:
+    sas.com/component-name: sas-esp-operator
+    sas.com/component-version: 10.725.5-20221221.1671648952059
+  creationTimestamp: null
+  name: deploy-assess-esp-operator-execute
+spec:
+  steps:
+  - args:
+    - sas.com/sas-esp-operator-update
+    - "true"
+    cmd: set_variable

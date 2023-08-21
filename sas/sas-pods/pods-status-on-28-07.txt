@@ -1,0 +1,169 @@
+farah@DESKTOP-4LG30UB:~/deploy$ kubectl get pods -n sasoperator
+NAME                                                              READY   STATUS             RESTARTS        AGE
+backrest-backup-sas-crunchy-data-postgres-qhpzl                   0/1     Completed          0               10m
+sas-activities-987669887-zrlbl                                    1/1     Running            0               32m
+sas-analytics-events-58fc55b84-7wvkq                              1/1     Running            0               32m
+sas-analytics-resources-94b4d489b-fr2xb                           1/1     Running            0               32m
+sas-analytics-services-7d567b78f-r8stw                            1/1     Running            0               32m
+sas-annotations-7fd4966cbd-sx5l9                                  1/1     Running            2 (3m6s ago)    32m
+sas-app-registry-847d656599-wbdzq                                 1/1     Running            0               32m
+sas-arke-6c7f8fcb46-gz692                                         1/1     Running            3 (14m ago)     32m
+sas-arke-6c7f8fcb46-kz99j                                         1/1     Running            0               119s
+sas-audit-5f6486b46c-4dhjn                                        1/1     Running            2 (2m29s ago)   32m
+sas-authorization-d7cbf6657-vvppp                                 1/1     Running            0               32m
+sas-batch-5dbdd8874c-lxldw                                        1/1     Running            0               32m
+sas-business-rules-services-c5f86698-wktbq                        1/1     Running            0               32m
+sas-cachelocator-0                                                1/1     Running            0               32m
+sas-cachelocator-1                                                1/1     Running            0               11m
+sas-cacheserver-0                                                 1/1     Running            0               32m
+sas-cacheserver-1                                                 1/1     Running            0               32m
+sas-cas-control-5cf9ffc96-vgmnq                                   1/1     Running            2 (7m18s ago)   32m
+sas-cas-operator-f865d858d-t2zpr                                  1/1     Running            0               32m
+sas-cas-server-default-controller                                 3/3     Running            0               4m55s
+sas-catalog-services-7d6cdd4474-l82wp                             1/1     Running            0               32m
+sas-category-execution-provider-86655f5b55-dzj7x                  1/1     Running            2 (7m15s ago)   32m
+sas-category-taxonomy-5bbffdf849-d77dj                            1/1     Running            1 (3m39s ago)   32m
+sas-code-debugger-7f99d6d967-ng29l                                1/1     Running            2 (7m12s ago)   32m
+sas-code-debugger-app-f98dcd788-rkghn                             1/1     Running            4 (7m21s ago)   32m
+sas-comments-7f57c8bcbf-7xr56                                     1/1     Running            1 (3m41s ago)   32m
+sas-compute-6d5b655c85-mgdzx                                      1/1     Running            3 (2m7s ago)    32m
+sas-concept-execution-provider-554f8fd776-nv2kt                   1/1     Running            2 (7m12s ago)   32m
+sas-config-reconciler-7565767c9d-lzq7m                            1/1     Running            2 (7m19s ago)   32m
+sas-configuration-6d97979c65-dxktt                                1/1     Running            1 (7m24s ago)   32m
+sas-connect-85d87d76f-q2hls                                       1/1     Running            1 (3m36s ago)   32m
+sas-connect-spawner-7ffd58d6fd-zb995                              1/1     Running            0               32m
+sas-consul-server-0                                               1/1     Running            0               32m
+sas-consul-server-1                                               1/1     Running            0               32m
+sas-consul-server-2                                               1/1     Running            0               32m
+sas-conversation-designer-app-7f8bd58457-748vl                    1/1     Running            1 (7m23s ago)   32m
+sas-create-openssl-ingress-certificate-6sqk8                      0/1     Completed          0               32m
+sas-credentials-98d76d77d-g9hl6                                   1/1     Running            0               32m
+sas-crossdomainproxy-77bf8c9587-snddx                             1/1     Running            1 (7m17s ago)   32m
+sas-crunchy-data-pgo-client-mnzt4                                 0/1     Completed          0               32m
+sas-crunchy-data-postgres-74ffc9bd47-qdp79                        3/3     Running            0               12m
+sas-crunchy-data-postgres-backrest-shared-repo-56779cc787-dxkc2   1/1     Running            0               13m
+sas-crunchy-data-postgres-fojc-59c66d6cfc-lktmt                   3/3     Running            0               10m
+sas-crunchy-data-postgres-hhlk-65f8999594-zzbxz                   3/3     Running            0               10m
+sas-crunchy-data-postgres-operator-f77f6bb5-x8mmb                 4/4     Running            0               32m
+sas-crunchy-data-postgres-tls-generator-wtbx5                     0/1     Completed          0               14m
+sas-data-explorer-app-8b8b6594d-x27w8                             0/1     Running            0               32m
+sas-data-flows-dc9f7667b-zrjrz                                    1/1     Running            2 (2m31s ago)   32m
+sas-data-mining-86f7f6f559-pqgxj                                  0/1     Running            0               32m
+sas-data-mining-models-5d4f48765f-9p7z6                           1/1     Running            0               32m
+sas-data-mining-project-resources-7577774f99-7mnqs                1/1     Running            0               32m
+sas-data-mining-results-55fd64b7f6-99zdp                          1/1     Running            0               32m
+sas-data-plans-5cfdf4c4f9-nwchx                                   1/1     Running            0               32m
+sas-data-quality-services-54f745f8dc-65snd                        0/1     Running            3 (105s ago)    32m
+sas-data-server-operator-5cfc74bd78-9dbr6                         1/1     Running            0               32m
+sas-data-sources-cb7695f8b-9h5b5                                  1/1     Running            1 (3m10s ago)   32m
+sas-data-studio-app-7d8f998dd8-hn5vv                              1/1     Running            5 (3m7s ago)    32m
+sas-decision-manager-app-6c6b8b47df-5pq8z                         1/1     Running            4 (7m22s ago)   32m
+sas-decisions-definitions-57fd79674-vdwhv                         1/1     Running            0               32m
+sas-decisions-runtime-builder-7745dbf95-w7ztq                     1/1     Running            2               32m
+sas-deployment-data-8667b945b8-l7wvl                              1/1     Running            0               32m
+sas-deployment-operator-555fdff75d-5ln4k                          1/1     Running            0               40m
+sas-deployment-operator-autoupdate-28175698-zjfqg                 0/1     Completed          0               19m
+sas-deployment-operator-reconcile-cce3cb3e-jg54w                  0/1     Completed          0               39m
+sas-device-management-5889c495d-z99dj                             1/1     Running            0               32m
+sas-documents-578764bffd-2rp92                                    1/1     Running            2 (7m18s ago)   32m
+sas-drive-app-6cf457c8c9-fk2v2                                    1/1     Running            3               32m
+sas-drive-b74b55d7-v6j66                                          1/1     Running            2 (2m55s ago)   32m
+sas-environment-manager-app-8f9cc5b79-wlzhq                       1/1     Running            4 (3m35s ago)   32m
+sas-esp-ccs-6cbf67d66d-t2wvx                                      0/1     CrashLoopBackOff   4 (10s ago)     3m14s
+sas-esp-operator-58fb4668b-lk5z5                                  1/1     Running            0               32m
+sas-event-monitor-5696cf9f9f-n8vvr                                1/1     Running            1 (3m33s ago)   32m
+sas-event-stream-manager-app-c6c796f7c-zgp9v                      1/1     Running            0               32m
+sas-event-stream-processing-metering-app-68b9f6d8df-f9vfb         1/1     Running            0               32m
+sas-event-stream-processing-streamviewer-app-54bfd8d765-sn2h8     1/1     Running            0               32m
+sas-event-stream-processing-studio-app-78768fc958-h2zk9           1/1     Running            0               32m
+sas-feature-flags-844c95549-cl66s                                 1/1     Running            0               32m
+sas-files-bf965ff84-xkvwx                                         1/1     Running            0               32m
+sas-folders-55f6c6d85c-ssx8k                                      1/1     Running            0               32m
+sas-fonts-6cd4d94775-w5xzx                                        1/1     Running            0               32m
+sas-forecasting-comparison-6b8c9dd9b-rqvqd                        1/1     Running            3 (7m20s ago)   32m
+sas-forecasting-data-definition-8445cdc547-jvmcw                  1/1     Running            0               32m
+sas-forecasting-events-6d6fcd7fc5-hsksd                           1/1     Running            0               32m
+sas-forecasting-exploration-67f7bb7545-fwx27                      1/1     Running            1 (7m16s ago)   32m
+sas-forecasting-filters-6884dfb576-r5l8g                          1/1     Running            0               32m
+sas-forecasting-gateway-7874b7d4fc-7p45k                          1/1     Running            2 (7m19s ago)   32m
+sas-forecasting-models-6dcdf8b6bf-tw678                           1/1     Running            2 (2m32s ago)   32m
+sas-forecasting-overrides-86c865d79f-2lzvl                        1/1     Running            0               32m
+sas-forecasting-pipelines-8679d567ff-kmws7                        1/1     Running            5 (2m29s ago)   32m
+sas-formats-7979d4b4cd-5d49r                                      2/2     Running            2 (7m27s ago)   32m
+sas-geo-enrichment-c58649769-vkjnf                                1/1     Running            1 (7m15s ago)   32m
+sas-graph-builder-app-6bc864757b-9b4nr                            1/1     Running            1 (7m22s ago)   32m
+sas-graph-templates-7c9c7c4f5c-85f5m                              1/1     Running            3 (2m53s ago)   32m
+sas-identities-68c858f5-cs6lq                                     1/1     Running            0               32m
+sas-import-9-58bb5b68d9-wkpvc                                     0/1     Running            0               32m
+sas-information-catalog-app-6bbf5769dd-6sw5l                      1/1     Running            3               32m
+sas-insights-8595d7946f-dhnxp                                     2/2     Running            3 (3m34s ago)   32m
+sas-job-execution-698659bfcb-7t757                                1/1     Running            0               32m
+sas-job-execution-app-6f8c7b4f77-vhk6z                            1/1     Running            3 (7m20s ago)   32m
+sas-job-flow-scheduling-675c56d54b-htqqb                          1/1     Running            0               32m
+sas-launcher-3272bf7a-4a12-4e17-91e9-f7572d71dac6-rgbqr           0/1     Completed          0               64s
+sas-launcher-6d5bdfffcd-vhxdd                                     1/1     Running            0               32m
+sas-launcher-8b0402c9-aa37-4447-bfc0-a6265c83ae0b-nbzdr           0/1     Completed          0               71s
+sas-lineage-app-7896b55b78-jltlb                                  1/1     Running            3 (3m17s ago)   32m
+sas-links-8557c58856-7wsg9                                        1/1     Running            2 (7m13s ago)   32m
+sas-localization-bcc56dd75-s2wg2                                  1/1     Running            1 (3m34s ago)   32m
+sas-logon-app-6d6676d464-gwm59                                    1/1     Running            0               32m
+sas-mail-686c88954-tjpmw                                          1/1     Running            3 (7m14s ago)   32m
+sas-maps-566b7c6b94-2vb9h                                         1/1     Running            0               32m
+sas-microanalytic-score-57c9b7cc69-6kwtd                          1/1     Running            0               32m
+sas-ml-pipeline-automation-779499858-l5vxk                        1/1     Running            1 (3m34s ago)   32m
+sas-model-management-64fbccb9f7-9f84v                             1/1     Running            3 (2m10s ago)   32m
+sas-model-manager-app-7bcd749fd8-kqlrv                            1/1     Running            3 (7m19s ago)   32m
+sas-model-publish-55dbbc9d55-wfhhq                                1/1     Running            1 (3m33s ago)   32m
+sas-model-repository-d899c9bf-jmgzx                               1/1     Running            0               32m
+sas-model-studio-app-6c844ffdb6-gvbjc                             1/1     Running            1 (7m21s ago)   32m
+sas-natural-language-conversations-654fc98f6c-mh6p8               1/1     Running            0               32m
+sas-natural-language-generation-6cdc54666b-49vk9                  1/1     Running            0               32m
+sas-natural-language-understanding-54b4d9f964-f7plp               1/1     Running            0               32m
+sas-notifications-7b77b9ff6d-hplcr                                1/1     Running            0               32m
+sas-office-addin-app-5f6f8d5d84-7gvxt                             1/1     Running            1 (7m11s ago)   32m
+sas-opendistro-default-0                                          1/1     Running            0               20m
+sas-opendistro-exporter-5d8f4844c5-jdzsr                          1/1     Running            0               32m
+sas-opendistro-operator-87b77765d-sb24w                           1/1     Running            0               32m
+sas-parse-execution-provider-747bf977cf-2slg5                     1/1     Running            3               32m
+sas-preferences-5dfdc97c4c-mv8f2                                  1/1     Running            0               32m
+sas-prepull-5fd8bd76bb-rvg67                                      1/1     Running            0               36m
+sas-pyconfig-cjinitial-wwjgd                                      0/1     Completed          0               32m
+sas-rabbitmq-server-0                                             1/1     Running            0               32m
+sas-rabbitmq-server-1                                             1/1     Running            0               32m
+sas-rabbitmq-server-2                                             1/1     Running            0               32m
+sas-readiness-85f7884fcc-hq8s8                                    0/1     Running            0               32m
+sas-report-distribution-6989c9456f-z6r2s                          1/1     Running            3 (2m23s ago)   32m
+sas-report-execution-7fb78fd48c-kbp6f                             1/1     Running            0               32m
+sas-report-operations-68cc7985-ggbb5                              2/2     Running            0               32m
+sas-report-renderer-6c94bbbbfd-qglsd                              1/1     Running            2 (7m23s ago)   32m
+sas-report-services-group-75cd8dd4cd-vxbjx                        1/1     Running            0               32m
+sas-scheduler-85749fcd7-9vdgb                                     1/1     Running            0               32m
+sas-score-definitions-7c96959f65-j79r2                            1/1     Running            3 (2m9s ago)    32m
+sas-score-execution-58b54f6fc8-llgc5                              1/1     Running            3 (2m6s ago)    32m
+sas-search-6cc6b8bbd5-r89bj                                       1/1     Running            1 (3m40s ago)   32m
+sas-sentiment-execution-provider-744f46f6c6-v42k5                 1/1     Running            4 (3m33s ago)   32m
+sas-studio-6c8467996b-6nz5m                                       1/1     Running            0               32m
+sas-studio-app-59fbc7f945-72cfb                                   0/1     Running            0               32m
+sas-studio-development-687b5fbb69-bkrpl                           1/1     Running            2 (7m12s ago)   32m
+sas-subject-contacts-678bbc7579-4nwl9                             1/1     Running            0               32m
+sas-templates-59c47f5c4c-kcdr4                                    1/1     Running            0               32m
+sas-terms-management-58f9bcd8b8-4mn4j                             1/1     Running            2 (7m13s ago)   32m
+sas-text-analytics-569f888bc6-w76hb                               1/1     Running            0               32m
+sas-text-concepts-75b69c95-r8gxl                                  1/1     Running            0               32m
+sas-theme-content-6b8fdf8f84-9m7wv                                1/1     Running            0               32m
+sas-theme-designer-app-78b5b69f8d-k9fm9                           1/1     Running            3 (7m12s ago)   32m
+sas-themes-7db659b645-2z2vq                                       1/1     Running            3 (2m27s ago)   32m
+sas-thumbnails-7c7f467fdd-shhgq                                   1/1     Running            0               32m
+sas-topic-execution-provider-657dd7cbbf-xm7mv                     1/1     Running            2 (7m13s ago)   32m
+sas-topic-management-6cffbc6b7f-7fjmn                             1/1     Running            2               32m
+sas-transfer-7d6df6bf78-t55rd                                     1/1     Running            0               32m
+sas-transformations-5df45887df-bjkfc                              1/1     Running            0               32m
+sas-types-5574fc56d7-wgbx6                                        1/1     Running            1 (3m34s ago)   32m
+sas-visual-analytics-6947cfdc89-96zvx                             1/1     Running            0               32m
+sas-visual-analytics-administration-6d5467d46-25czd               1/1     Running            0               32m
+sas-visual-analytics-app-7f8879458b-s9pqr                         1/1     Running            1 (7m13s ago)   32m
+sas-web-data-access-674bc9865c-26zwc                              1/1     Running            2 (7m15s ago)   32m
+sas-webhooks-7cd9dd48bd-bg9lp                                     1/1     Running            2 (2m50s ago)   32m
+sas-workflow-7c756cc498-nlz7d                                     1/1     Running            0               32m
+sas-workflow-definition-history-56dddb5649-njr7b                  1/1     Running            0               32m
+sas-workflow-manager-app-5745d5874-sk9pn                          1/1     Running            1 (7m14s ago)   32m

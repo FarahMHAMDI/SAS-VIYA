@@ -1,0 +1,39 @@
+connect to your azure AKS Cluster 
+az aks get-credentials --resource-group viya4-rg --name viya4-aks
+kubectl get nodes
+kubectl get pods --all-namespaces
+kubectl get ns
+kubectl get storageclass
+kubectl get ingress -n
+kubectl describe ....
+-------------
+kubectl \
+  logs \
+  -n ingress-nginx \
+  ingress-nginx-controller-6bf7bc7f94-65mdf
+----------------
+kubectl -n sasoperator get sasdeployment
+---------------
+kubectl \
+  logs \
+  -n sasoperator \
+  sas-cas-server-default-controller
+------------------------------------
+kubectl \
+  get sasdeployments \
+  -n sasoperator \
+  -o yaml
+--------------
+kubectl logs -n sasoperator --selector="app.kubernetes.io/name=sas-readiness"
+-------
+kubectl -n sasoperator logs -c sas-logon-app $(kubectl -n sasoperator get pods -l "app==sas-logon-app" --no-headers --sort-by=.status.startTime -o custom-columns=":metadata.name" | tail -1) | grep "/SASLogon/reset_password?"
+---------------
+kubectl \
+  get sasdeployments \
+  -n sasoperator \
+  -o yaml
+------------------
+kubectl wait -n sasoperator \
+  --for=condition=ready pod \
+  --selector="app.kubernetes.io/name=sas-readiness" \
+  --timeout=800s
